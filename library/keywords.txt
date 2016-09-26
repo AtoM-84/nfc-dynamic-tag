@@ -1,0 +1,34 @@
+#######################################
+# Syntax Coloring Map For Wire
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+NXP_NTAG_I2C  KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+ReadDataBlock	KEYWORD2
+WriteDataBlock	KEYWORD2
+WriteData	KEYWORD2
+CleanDataBlock	KEYWORD2
+CleanData	KEYWORD2
+BuildNDEFMessage	KEYWORD2
+
+PrintHex	KEYWORD2
+PrintHexASCII	KEYWORD2
+UserMemoryDump	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+NTAG_I2C	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
