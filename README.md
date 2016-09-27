@@ -54,8 +54,8 @@ A typical NDEF message wrapper is :
 
 This sketch implements two records in a NDEF message. The first is dedicated to Windows Phone terminals, the second is dedicated to Android terminals (AAR). The records need to be placed in that order if you want to have a dual use for Windows phones and Android phones.
 
-### NTAGMemoryDump
+### NTAGMemoryDumpSketch
 
-
+This sketch dumps the whole content of the memory and give a report of the different registers (session, configuration, EEPROM etc...).
 
 ## Projects
