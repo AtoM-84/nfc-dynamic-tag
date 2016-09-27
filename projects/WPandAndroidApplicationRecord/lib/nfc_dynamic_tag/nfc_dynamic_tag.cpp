@@ -33,7 +33,7 @@ This is a library for the NXP NTAG_I2C board
 
 #include "Arduino.h"
 #include <Wire.h>
-#include <NTAG_I2C.h>
+#include <nfc_dynamic_tag.h>
 
 #define NTAG_I2C_SERIAL_NB_BLOCK 0x00
 #define NTAG_I2C_USER_MEMORY_BLOCK 0x01  //first user memory block, last one is 0x38
@@ -61,8 +61,6 @@ NXP_NTAG_I2C::NXP_NTAG_I2C(const byte device_address) : _device_address(device_a
 
 void NXP_NTAG_I2C::begin()
 {
-    Wire.begin();
-    Serial.begin(115200);
     delay(100);
 }
 
@@ -201,7 +199,7 @@ void NXP_NTAG_I2C::StartSRAMMirror()
 
 void NXP_NTAG_I2C::WriteDataEEPROM(uint8_t *input_buffer, int input_buffer_length)
 {
-    uint32_t full_block;
+    int32_t full_block;
     uint32_t last_block_remainder;
 
     full_block = (uint32_t)(input_buffer_length / 16);
@@ -223,7 +221,7 @@ void NXP_NTAG_I2C::WriteDataEEPROM(uint8_t *input_buffer, int input_buffer_lengt
 
 void NXP_NTAG_I2C::WriteDataSRAM(uint8_t *input_buffer, int input_buffer_length)
 {
-    uint32_t full_block;
+    int32_t full_block;
     uint32_t last_block_remainder;
 
     full_block = (uint32_t)(input_buffer_length / 16);

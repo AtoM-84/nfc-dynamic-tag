@@ -3,7 +3,7 @@
     @file     NTAG_I2C.h
     @author   AtoM
 	@license  BSD (see license.txt)
-    
+
 This is a library for the NXP NTAG_I2C board
 
 	@section  HISTORY
@@ -29,8 +29,8 @@ This is a library for the NXP NTAG_I2C board
 */
 /**************************************************************************/
 
-#ifndef NTAG_I2C_H
-#define NTAG_I2C_H
+#ifndef NFC_DYNAMIC_TAG_H
+#define NFC_DYNAMIC_TAG_H
 
 #if ARDUINO >= 100
 #include "Arduino.h"
