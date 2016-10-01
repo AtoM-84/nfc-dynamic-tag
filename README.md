@@ -1,18 +1,23 @@
+
+
 # NFC_dynamic_tag
-C++ library and sketches for the NFC dynamic tag for Arduino UNO based on NT3H1101 chip from NXP.
+
+C++ library and sketches for the NFC dynamic tag for Arduino UNO based on [NT3H1101](http://www.nxp.com/documents/data_sheet/NT3H1101_1201.pdf) chip from NXP.
 
 ## Library
 
-## Examples
+
+## Sketch Examples
 
 Sketch examples for Arduino IDE. Copy/paste the library files (.cpp, .h and keywords.txt) in your Arduino library folder. The examples can be used directly in your Arduino IDE.
 
-### WifiConfigurationRecordSketch
+### Wifi Credential Logger (WifiConfigurationRecordSketch)
 
-This sketch pushes into the EEPROM of the NTAG a wifi credential content based on the Wifi Simple Configuration standard (for further informations read the paper ). Using the serial port a series of questions are send to the user and the tag is programmed based on the data provided. Data required are : network SSID, network key, authentication type and encryption type. The rest is built from these data.
+This sketch pushes into the EEPROM of the NTAG a wifi credential content based on the [Wifi Simple Configuration standard](https://www.wi-fi.org/downloads-registered-guest/Wi-Fi_Simple_Configuration_Technical_Specification_v2.0.5.pdf). Using the serial port a series of questions are send to the user and the tag is programmed based on the data provided. Data required are : network SSID, network key, authentication type and encryption type. The rest is built from these data. The generic structure is a 2bytes attributes, followed by the length on 2 bytes and the value of the attributes on the specified number of bytes.  
 
 The following table gives the usual attribute in the order they are pushed inside the EEPROM.
 
+<center>
 
 |   Wifi Credential Attribute   |    Size (byte nb)    |      Default Value (hex)     |
 |:-----------------------------:|:--------------------:|:----------------------------:|
@@ -40,7 +45,9 @@ The following table gives the usual attribute in the order they are pushed insid
 |     Vendor Address Length     |          2B          |            0x0006            |
 |      Vendor Address Value     |          6B          |        0x00372A------        |
 
-The entire credential consitutes the payload. The credential is wrapped in a NDEF message as a external type record application/vnd.wfa.wsc.
+</center>
+
+The entire credential consitutes the payload. The credential is wrapped in a NDEF message as a external type record __application/vnd.wfa.wsc__.
 
 A typical NDEF message wrapper is :
 * Start Byte: B11010010 (meaning MB = 1 ME = 1 CF = 0 SR = 1 IL = 0 and TNF = 0x04),
@@ -50,12 +57,14 @@ A typical NDEF message wrapper is :
 * then the payload (credential)
 * Final Byte of NDEF message is 0xFE
 
-### WPandAndroidApplicationRecordSketch
+### Windows Phone and Android Application Launcher (WPandAndroidApplicationRecordSketch)
 
-This sketch implements two records in a NDEF message. The first is dedicated to Windows Phone terminals, the second is dedicated to Android terminals (AAR). The records need to be placed in that order if you want to have a dual use for Windows phones and Android phones.
+This sketch implements two records in a NDEF message. The example is taken from the Orange Cash application launcher.The first is dedicated to Windows Phone terminals, the second is dedicated to Android terminals (AAR). Note that the records need to be placed in tis very order if you want to have a dual use for Windows phones and Android phones.
 
-### NTAGMemoryDumpSketch
+### Full Memory Dump (NTAGMemoryDumpSketch)
 
 This sketch dumps the whole content of the memory and give a report of the different registers (session, configuration, EEPROM etc...).
 
 ## Projects
+
+
