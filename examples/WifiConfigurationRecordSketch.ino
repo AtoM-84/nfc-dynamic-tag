@@ -2,7 +2,7 @@
 #include <nfc_dynamic_tag.h>
 #include <Wire.h>
 
-//Definitions of types according to Wifi Simple Configuration TS v 2.0.5
+//Types definition according to Wifi Simple Configuration TS v 2.0.5
 
 #define CREDENTIAL_TYPE 0x100E
 #define CREDENTIAL_LENGTH 0x0000
