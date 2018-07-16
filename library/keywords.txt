@@ -6,7 +6,7 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-NXP_NTAG_I2C  KEYWORD1
+NXP_NTAG_I2C	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
